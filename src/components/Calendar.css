@@ -1,0 +1,158 @@
+.calendar-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
+  color: #eee;
+}
+
+.persona-filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.chip {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  border-color: #22c55e;
+}
+
+.chip-activo {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.meses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.mes-card {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.mes-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.dias-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 0.7rem;
+  color: #777;
+  margin-bottom: 0.25rem;
+}
+
+.dias-header span {
+  text-align: center;
+}
+
+.dias-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  background: #1f1f1f;
+  color: #555;
+  font-size: 0.75rem;
+  cursor: default;
+}
+
+.dia.vacio {
+  background: transparent;
+}
+
+.dia-verde {
+  background: #22c55e;
+  color: #0a0a0a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dia-verde:hover {
+  background: #16a34a;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modal {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal h3 {
+  margin: 0 0 0.25rem;
+}
+
+.modal-personas {
+  color: #22c55e;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.fotos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.5rem;
+}
+
+.fotos-grid img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
