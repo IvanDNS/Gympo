@@ -82,6 +82,7 @@ export default function MesGrande() {
   const [diaSeleccionado, setDiaSeleccionado] = useState(null);
   const [modoEdicion, setModoEdicion] = useState(false);
   const [nombreAAgregar, setNombreAAgregar] = useState("");
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
 
   const mesActual = meses[mesIndex];
 
@@ -293,13 +294,16 @@ export default function MesGrande() {
 
                 <div className="mg-fotos-grid">
                   {registroSeleccionado.fotos.map((foto, i) => (
-                    <div key={i} className="mg-foto-item">
+                    <div key={i} className="mg-foto-item" onClick={() => setFotoAmpliada(foto)}>
                       <img src={`/fotos/${foto}`} alt={`Foto del ${diaSeleccionado}`} />
                       {modoEdicion && (
                         <button
                           className="mg-borrar-foto"
                           title="Eliminar esta foto"
-                          onClick={() => eliminarFoto(diaSeleccionado, foto)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            eliminarFoto(diaSeleccionado, foto);
+                          }}
                         >
                           ✕
                         </button>
@@ -320,6 +324,33 @@ export default function MesGrande() {
       >
         ⚙️
       </button>
+
+      <AnimatePresence>
+        {fotoAmpliada && (
+          <motion.div
+            className="mg-lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            onClick={() => setFotoAmpliada(null)}
+          >
+            <motion.img
+              src={`/fotos/${fotoAmpliada}`}
+              alt="Foto ampliada"
+              className="mg-lightbox-img"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button className="mg-lightbox-cerrar" onClick={() => setFotoAmpliada(null)}>
+              ✕
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

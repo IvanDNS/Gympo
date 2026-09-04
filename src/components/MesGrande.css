@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1.3fr 0.9fr;
   gap: 1.25rem;
-  max-width: 680px;
+  max-width: 950px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -16,7 +16,7 @@
 .mg-calendario,
 .mg-panel {
   background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
@@ -309,6 +309,7 @@
 
 .mg-foto-item {
   position: relative;
+  cursor: pointer;
 }
 
 .mg-borrar-foto {
@@ -322,5 +323,41 @@
   border: none;
   color: #ff6b6b;
   font-size: 0.7rem;
+  cursor: pointer;
+}
+
+/* --- Lightbox --- */
+
+.mg-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.mg-lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.mg-lightbox-cerrar {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
 }
