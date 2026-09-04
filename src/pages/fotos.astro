@@ -1,0 +1,24 @@
+---
+import Nav from '../components/Nav.astro';
+import FotosGallery from '../components/FotosGallery.jsx';
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gympo · Fotos</title>
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <FotosGallery client:load />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    margin: 0;
+    background: #0a0a0a;
+  }
+</style>

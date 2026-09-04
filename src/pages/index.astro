@@ -1,13 +1,61 @@
 ---
-import Calendar from '../components/Calendar.jsx';
+import Nav from '../components/Nav.astro';
+import MesGrande from '../components/MesGrande.jsx';
 ---
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gympo</title>
   </head>
-  <body style="background:#0a0a0a; margin:0;">
-    <h1 style="text-align:center; color:white; font-family:system-ui; padding-top:1.5rem;">Gympo 💪</h1>
-    <Calendar client:load />
+  <body>
+    <Nav />
+
+    <main class="hero">
+      <div class="fondo-imagen"></div>
+
+      <MesGrande client:load />
+    </main>
   </body>
 </html>
+
+<style is:global>
+  body {
+    margin: 0;
+    background: #0a0a0a;
+    min-height: 100vh;
+  }
+</style>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .fondo-imagen {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('/fondo2.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .fondo-imagen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.35);
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 2rem 0;
+    }
+  }
+</style>
